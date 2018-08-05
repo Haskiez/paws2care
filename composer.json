@@ -1,0 +1,12 @@
+{
+    "name": "brade/www",
+    "authors": [
+        {
+            "name": "Braden Haskell",
+            "email": "haskiezgaming@gmail.com"
+        }
+    ],
+    "require": {
+        "fzaninotto/faker": "^1.8"
+    }
+}

@@ -1,0 +1,135 @@
+{
+    "dogs": [
+        {
+            "id": "1",
+            "name": "Spot",
+            "breed": "English Pitbull",
+            "sex": "m",
+            "shots": true,
+            "birthDate": "05/05/2015",
+            "weight": 10,
+            "licensed": true,
+            "neutered": false,
+            "owners": [
+                "Bill Johnson",
+                "Kay Johnson"
+            ],
+            "notes": "Spot gets very stressed when left in the kennel too long. Make sure to work on him only when the owners are present."
+        },
+        {
+            "id": "2",
+            "name": "Darin",
+            "breed": "Golden Retriever",
+            "sex": "f",
+            "shots": false,
+            "birthDate": "05/05/2018",
+            "weight": 40,
+            "licensed": false,
+            "neutered": true,
+            "owners": [
+                "Tamera Robey"
+            ],
+            "notes": ""
+        },
+        {
+            "id": "3",
+            "name": "Cutter",
+            "breed": "Great Dane",
+            "sex": "M",
+            "shots": false,
+            "birthDate": "05/05/2017",
+            "weight": 80,
+            "licensed": false,
+            "neutered": true,
+            "owners": [
+                "Tamera Robey",
+                "Brooks Robey",
+                "Jason Gonzolez"
+            ],
+            "notes": "Line breaks\nIn notes\n\nMore Text"
+        }
+    ],
+    "cats": [
+        {
+            "id": "1",
+            "name": "Dolly",
+            "breed": "Calico",
+            "sex": "f",
+            "shots": false,
+            "birthDate": "10/01/2017",
+            "declawed": false,
+            "neutered": false,
+            "owners": [
+                "Johnny Rocket"
+            ],
+            "notes": ""
+        },
+        {
+            "id": "2",
+            "name": "Ctahalla",
+            "breed": "British Shorthair",
+            "sex": "m",
+            "shots": true,
+            "birthDate": "10/01/2010",
+            "declawed": true,
+            "neutered": true,
+            "owners": [
+                "Jessie Sinclair",
+                "Donovan O'Hara"
+            ],
+            "notes": "Great cat. Remind the owners they need to get him declawed soon."
+        },
+        {
+            "id": "3",
+            "name": "Decko",
+            "breed": "Sphynx",
+            "sex": "m",
+            "shots": true,
+            "birthDate": "01/01/2018",
+            "declawed": false,
+            "neutered": true,
+            "owners": [
+                "Jessie Sinclair",
+                "Donovan O'Hara",
+                "Jasonelle O'Hara"
+            ],
+            "notes": "Notes with \\n in it right\nhere haha"
+        }
+    ],
+    "exotics": [
+        {
+            "id": "1",
+            "name": "Rocky",
+            "species": "Hamster",
+            "sex": "f",
+            "birthDate": "01/31/2016",
+            "owners": [
+                "Jason Meyers",
+                "Kitty Meyers"
+            ],
+            "notes": "Rocky has had a recent unknown growth on his hind end. Needs to be checked again in 30 days from last visit."
+        },
+        {
+            "id": "2",
+            "name": "Jquellen",
+            "species": "Arizonian Gecko",
+            "sex": "m",
+            "birthDate": "12/25/2014",
+            "owners": [
+                "Jahonte Daniels"
+            ],
+            "notes": ""
+        },
+        {
+            "id": "3",
+            "name": "Sticky",
+            "species": "Gardener Snake",
+            "sex": "f",
+            "birthDate": "12/25/2017",
+            "owners": [
+                "Jahonte Daniels"
+            ],
+            "notes": "Very aggressive snake but not poisonous."
+        }
+    ]
+}
