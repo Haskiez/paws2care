@@ -48,7 +48,7 @@
             <?php } ?>
             <?php if ($loggedin && !$admin) { ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">My Animals</a>
+                    <a class="nav-link" href="pets.php">Pets</a>
                 </li>
             <?php } ?>
             <?php if ($admin) { ?>

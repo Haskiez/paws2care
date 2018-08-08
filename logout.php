@@ -3,4 +3,6 @@
     $_SESSION['loggedin'] = false;
     unset($_SESSION['isAdmin']);
     unset($_SESSION['username']);
-    header("LOCATION: " . $_SERVER['HTTP_REFERER']);
+    unset($_SESSION['name']);
+    unset($_SESSION['uid']);
+    header("LOCATION: index.php");

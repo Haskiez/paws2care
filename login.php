@@ -23,6 +23,8 @@
                         $_SESSION['loggedin'] = true;
                         $_SESSION['isAdmin'] = $row['isAdmin'];
                         $_SESSION['username'] = $row['username'];
+                        $_SESSION['name'] = $row['fname'] . ' ' . $row['lname'];
+                        $_SESSION['uid'] = $row['id'];
                         header("LOCATION: /index.php");
                     }
                     // failed on password

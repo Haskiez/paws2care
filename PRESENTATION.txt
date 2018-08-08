@@ -1,0 +1,22 @@
+[OWNERS PAGE]
+- Pets Modal
+    - Janessa Kessler has all 3 classes of animals
+    - Janessa Collier has 2 classes of animals
+    - Janice Christiansan has just 1 class of animals
+- Paging
+    - First name search 'ka' to show Paging
+- Sorting and Filtering
+    - First name search 'ta' to show searching and sorting on small group
+
+[ANIMALS PAGES]
+- Paging, Sorting and Filtering
+    [DOGS]
+    - Search 're' in first name for paging results
+    - Sort these results on different columns
+    [CATS]
+    - Search 'ju' in first name for all of these
+    [EXOTICS]
+    - Search 'ca' in first name for all of these
+- Owners and Notes Modals
+    - Pretty much anything works for this part
+

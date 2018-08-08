@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['isAdmin']) || !$_SESSION['isAdmin']) {
-        header("LOCATION: " . $_SERVER['HTTP_REFERER']);
+        header("LOCATION: index.php");
     }
     // var to hold errors if any
     $error = ["error" => false, "msg" => ''];
@@ -127,7 +127,7 @@
 
     <!-- Pets modal -->
     <div class="modal fade" id="petsModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Pets</h5>
@@ -136,15 +136,18 @@
                     </button>
                 </div>
                 <div class="modal-body petsBody">
+                    <p id="noPetsMsg" style="display:none;">No pets.</p>
                     <table class="table" id="dogsTable">
                         <thead>
+                            <tr>
+                                <th>Dogs</th>
+                            </tr>
                             <tr>
                                 <th>Name</th>
                                 <th>Breed</th>
                                 <th>Sex</th>
-                                <th>Medical</th>
                                 <th>Age</th>
-                                <th>Weight</th>
+                                <th>Medical</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -154,11 +157,14 @@
                     <table class="table" id="catsTable">
                         <thead>
                             <tr>
+                                <th>Cats</th>
+                            </tr>
+                            <tr>
                                 <th>Name</th>
                                 <th>Breed</th>
                                 <th>Sex</th>
-                                <th>Medical</th>
                                 <th>Age</th>
+                                <th>Medical</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -168,11 +174,14 @@
                     <table class="table" id="exoticsTable">
                         <thead>
                             <tr>
+                                <th>Exotics</th>
+                            </tr>
+                            <tr>
                                 <th>Name</th>
                                 <th>Species</th>
                                 <th>Sex</th>
-                                <th>Neutered</th>
                                 <th>Age</th>
+                                <th>Neutered</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -238,14 +247,28 @@
 
             // ajax for each owners pets... cause its much easier this way and not stupid
             $('.pets-link').click(function() {
+                $('#noPetsMsg').hide();
                 let url = 'queryOwnersPets.php?ownerId=' + $(this).closest('tr').attr('data-owner-id');
-                console.log(url);
                 $.get(url, function(r) {
                     let d = JSON.parse(r.message);
-                    console.log(d);
+                    let c = 0;
                     $('#petsModal').modal('show');
-                    // console.log($('#dogsTable'));
-                    $('#dogsTable').find('tbody').html(d.dogs);
+                    if (d.cats != '') {
+                        $('#catsTable').find('tbody').html(d.cats);
+                        $('#catsTable').show();
+                    } 
+                    else { $('#catsTable').hide(); c++; }
+                    if (d.dogs != '') {
+                        $('#dogsTable').find('tbody').html(d.dogs);
+                        $('#dogsTable').show();
+                    } 
+                    else { $('#dogsTable').hide(); c++; }
+                    if (d.exotics != '') {
+                        $('#exoticsTable').find('tbody').html(d.exotics);
+                        $('#exoticsTable').show();
+                    } 
+                    else { $('#exoticsTable').hide(); c++; }
+                    if (c == 3) { $('#noPetsMsg').show(); }
                 }).fail(function(r) {
                     console.log('Error:');
                     console.log(r);

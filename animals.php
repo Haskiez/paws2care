@@ -287,6 +287,8 @@
                 }
                 // set page number back to 1 for the new query
                 sfq.pageNum = 1;
+                // take off disabled class from paging buttons
+                $('.new-page').each(function() { $(this).removeClass('disabled'); });
                 // reset pagination
                 $('.page-number').html(sfq.pageNum);
                 $($('.new-page')[0]).addClass('disabled');

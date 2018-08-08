@@ -50,26 +50,44 @@
             // query results
             $rs = $db->query($qc);
             while ($row = $rs->fetch_assoc()) {
-                $shots = $row["shots"] == "1" ? "Shots: True" : "Shots: False";
-                $declawed = $row["declawed"] == "1" ? "Declawed: True" : "Declawed: False";
-                $neutered = $row["neutered"] == "1" ? "Neutered: True" : "Neutered: False";
-                $tc .= "<tr><td>" . $row["name"] . "</td><td>" . $row["breed"] . "</td><td>" . $row["sex"] . "</td><td>" . $shots . "<br>" . $declawed . "<br>" . $neutered . "</td><td>" . $row["birthdate"] . "</td></tr>";
+                // calculate bday
+                $b = new DateTime($row["birthdate"]);
+                $n = new DateTime("today");
+                $ageYears = $b->diff($n)->y;
+                if ($ageYears < 1) { $ageYears = "< 1"; }
+                // format data
+                $shots = $row["shots"] == "1" ? "Shots: <span style=\"color:green;\">&#10004;</span>" : "Shots: <span>&#10006;</span>";
+                $declawed = $row["declawed"] == "1" ? "Declawed: <span style=\"color:green;\">&#10004;</span>" : "Declawed: <span>&#10006;</span>";
+                $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span>&#10006;</span>";
+                $tc .= "<tr><td>" . $row["name"] . "</td><td>" . $row["breed"] . "</td><td>" . strtoupper($row["sex"]) . "</td><td>" . $ageYears . "</td><td>" . $shots . "<br>" . $declawed . "<br>" . $neutered . "</td></tr>";
             }
             $rs->close();
 
             $rs = $db->query($qd);
             while ($row = $rs->fetch_assoc()) {
-                $shots = $row["shots"] == "1" ? "Shots: True" : "Shots: False";
-                $licensed = $row["licensed"] == "1" ? "Declawed: True" : "Declawed: False";
-                $neutered = $row["neutered"] == "1" ? "Neutered: True" : "Neutered: False";
-                $td .= "<tr><td>" . $row["name"] . "</td><td>" . $row["breed"] . "</td><td>" . $row["sex"] . "</td><td>" . $shots . "<br>" . $licensed . "<br>" . $neutered . "</td><td>" . $row["birthdate"] . "</td><td>" . $row["weight"] . "</td></tr>";
+                // calculate bday
+                $b = new DateTime($row["birthdate"]);
+                $n = new DateTime("today");
+                $ageYears = $b->diff($n)->y;
+                if ($ageYears < 1) { $ageYears = "< 1"; }
+                // format data
+                $shots = $row["shots"] == "1" ? "Shots: <span style=\"color:green;\">&#10004;</span>" : "Shots: <span>&#10006;</span>";
+                $licensed = $row["licensed"] == "1" ? "Licensed: <span style=\"color:green;\">&#10004;</span>" : "Licensed: <span>&#10006;</span>";
+                $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span>&#10006;</span>";
+                $td .= "<tr><td>" . $row["name"] . "</td><td>" . $row["breed"] . "</td><td>" . strtoupper($row["sex"]) . "</td><td>" . $ageYears . "</td><td>Weight: " . $row["weight"] . "<br>" . $shots . "<br>" . $licensed . "<br>" . $neutered . "</td></tr>";
             }
             $rs->close();
 
-            $rs = $db->query($qd);
+            $rs = $db->query($qe);
             while ($row = $rs->fetch_assoc()) {
-                $neutered = $row["neutered"] == "1" ? "Neutered: True" : "Neutered: False";
-                $te .= "<tr><td>" . $row["name"] . "</td><td>" . $row["species"] . "</td><td>" . $row["sex"] . "</td><td>" . $row["neutered"] . "</td><td>" . $row["birthdate"] . "</td></tr>";
+                // calculate bday
+                $b = new DateTime($row["birthdate"]);
+                $n = new DateTime("today");
+                $ageYears = $b->diff($n)->y;
+                if ($ageYears < 1) { $ageYears = "< 1"; }
+                // format data
+                $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span>&#10006;</span>";
+                $te .= "<tr><td>" . $row["name"] . "</td><td>" . $row["species"] . "</td><td>" . strtoupper($row["sex"]) . "</td><td>" . $ageYears . "</td><td>" . $neutered . "</td></tr>";
             }
             $rs->close();
 
