@@ -1,11 +1,19 @@
 <?php
     // start admin status to false as default
     $loggedin = false;
+    $un = "";
     // check if the session has a logged in status
     if (isset($_SESSION['loggedin'])) {
         // if it does, it will be either set to true or false and 
         // we need to set that to the loggedin variable that we are using in this navbar
         $loggedin = $_SESSION['loggedin'];
+    }
+    if (isset($_SESSION['username'])) {
+        $un = $_SESSION['username'];
+    }
+    $admin = false;
+    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
+        $admin = true;
     }
 ?>
 
@@ -26,7 +34,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/contact.php">Contact</a>
             </li>
-            <?php if ($loggedin) { ?>
+            <?php if ($loggedin && $admin) { ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Animals
@@ -35,21 +43,29 @@
                         <a class="dropdown-item" href="/animals.php?animal=dogs">Dogs</a>
                         <a class="dropdown-item" href="/animals.php?animal=cats">Cats</a>
                         <a class="dropdown-item" href="/animals.php?animal=exotics">Exotics</a>
-                        <!-- <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">All</a> -->
                     </div>
+                </li>
+            <?php } ?>
+            <?php if ($loggedin && !$admin) { ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">My Animals</a>
+                </li>
+            <?php } ?>
+            <?php if ($admin) { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="/owners.php">Owners</a>
                 </li>
             <?php } ?>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <?php if ($loggedin) { ?>
-                    <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown">username</a>
+                    <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown"><?php echo $un ?></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a href="/logout.php" class="dropdown-item">Logout</a>
                     </div>
                 <?php } else { ?>
-                    <a href="/login.php" class="nav-link">Login</a>
+                    <a href="/loginView.php" class="nav-link">Login</a>
                 <?php } ?>
             </li>
         </ul>

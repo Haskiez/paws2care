@@ -1,4 +1,6 @@
 <?php
     session_start();
     $_SESSION['loggedin'] = false;
-    header("LOCATION: /index.php");
+    unset($_SESSION['isAdmin']);
+    unset($_SESSION['username']);
+    header("LOCATION: " . $_SERVER['HTTP_REFERER']);

@@ -1,0 +1,7 @@
+[ADMIN]
+- Be able to click on owner and view animals information
+[OWNERS]
+- Add Pets tab for owners to see their animals
+    - Needs sorting and filtering
+[ALL]
+- Jasmine Testing

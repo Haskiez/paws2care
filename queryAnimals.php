@@ -51,7 +51,7 @@
             $query = "";
 
             // if there is a column to sort then that what we need to d0
-            $query = "SELECT * FROM $table LIMIT " . ($pageNum * 10) . ", 10";
+            $query = "SELECT * FROM $table LIMIT " . ($pageNum * 10 - 10) . ", 10";
             $results = $db->query($query);
             echo json_response($results->fetch_all());
         }
@@ -62,7 +62,7 @@
             
             // filtering here
             if ($colFilt != '' && $colSort == '') {
-                $query = "SELECT * FROM $table WHERE $colFilt REGEXP '^($filtQ)' ORDER BY name LIMIT " . ($pageNum * 10 - 10) . ", 10";
+                $query = "SELECT * FROM $table WHERE $colFilt REGEXP '^($filtQ)' ORDER BY $colFilt LIMIT " . ($pageNum * 10 - 10) . ", 10";
                 $results = $db->query($query);
                 echo json_response($results->fetch_all());
             }
