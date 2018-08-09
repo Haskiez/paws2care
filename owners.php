@@ -55,6 +55,7 @@
                             <th></th>
                             <th></th>
                             <th></th>
+                            <th></th>
                             <th><a href="owners.php" class="btn btn-primary">Reset</a></th>
                         </tr>
                         <tr>
@@ -66,6 +67,7 @@
                             <th class="sortable" data-col-name="zip" data-sort-dir="none">Postal Code <span class="float-right sort-icon"><?php echo $colSort == 'zip' ? ($sortDir == 'ASC' ? '&uuarr;' : '&ddarr;') : '&udarr;' ?></span></th>
                             <th class="sortable" data-col-name="username" data-sort-dir="none">Username <span class="float-right sort-icon"><?php echo $colSort == 'username' ? ($sortDir == 'ASC' ? '&uuarr;' : '&ddarr;') : '&udarr;' ?></span></th>
                             <th>Pets</th>
+                            <th>Notes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -91,7 +93,7 @@
                             $results = $db->query($q);
                             while($row = $results->fetch_assoc()) {
                                 $recordCount++;
-                                echo '<tr data-owner-id="' . $row['id'] . '"><td>' . $row["fname"] . '</td><td>' . $row["lname"] . '</td><td>' . $row["address"] . '</td><td>' . $row["city"] . '</td><td>' . $row["st"] . '</td><td>' . $row["zip"] . '</td><td>' . $row["username"] . '</td><td><a href="#" class="pets-link">Pets</a></td></tr>';
+                                echo '<tr data-owner-id="' . $row['id'] . '"><td>' . $row["fname"] . '</td><td>' . $row["lname"] . '</td><td>' . $row["address"] . '</td><td>' . $row["city"] . '</td><td>' . $row["st"] . '</td><td>' . $row["zip"] . '</td><td>' . $row["username"] . '</td><td><a href="#" class="pets-link">Pets</a></td><td><a href="#" class="notes-link">Notes</a></td></tr>';
                             }
                         ?>
                     </tbody>
@@ -181,13 +183,35 @@
                                 <th>Species</th>
                                 <th>Sex</th>
                                 <th>Age</th>
-                                <th>Neutered</th>
+                                <th>Medical</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- EXOTIC DATA HERE -->
                         </tbody>
                     </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Notes modal -->
+    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Pets</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body petsBody">
+                    <p id="noNotesMsg" style="display:none;">No Notes.</p>
+                    <div id="notesDiv">
+
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -273,6 +297,16 @@
                     console.log('Error:');
                     console.log(r);
                 });
+            });
+            $('.notes-link').click(function() {
+                $('#noNotesMsg').hide();
+                let url = 'queryOwnersNotes.php?ownerId=' + $(this).closest('tr').attr('data-owner-id');
+                $.get(url, function(r) {
+                    $('#notesModal').modal('show');
+                    if (r.message != '') {
+                        $('#notesDiv').html(r.message);
+                    } else { $('#noNotesMsg').show(); }
+                }).fail((r) => { console.log('Error:', r); });
             })
         });
     </script>

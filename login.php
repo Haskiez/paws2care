@@ -44,8 +44,3 @@
             header("LOCATION: /loginView.php");
         }
     }
-
-    // $_SESSION'loggedin' = true;
-    // $_SESSION'isAdmin' = false;
-    // $_SESSION'username' = "Joshua";
-    // header("LOCATION: /index.php");
