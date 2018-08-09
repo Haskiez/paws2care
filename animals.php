@@ -359,11 +359,11 @@
                         <td>` + data[i][1] + `</td>
                         <td>` + data[i][2] + `</td>
                         <td>` + (data[i][3]).toUpperCase() + `</td>
-                        <td>` + (data[i][4] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span>&#10006;</span>') + `</td>
+                        <td>` + (data[i][4] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span><b>&times;</b></span>') + `</td>
                         <td>` + (ageYears == 0 ? '< 1' : ageYears) + `</td>
                         <td>` + data[i][8] + `</td>
-                        <td>` + (data[i][5] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span>&#10006;</span>') + `</td>
-                        <td>` + (data[i][6] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span>&#10006;</span>') + `</td>
+                        <td>` + (data[i][5] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span><b>&times;</b></span>') + `</td>
+                        <td>` + (data[i][6] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span><b>&times;</b></span>') + `</td>
                         <td><a href="#" class="ownersLink" data-toggle="modal" data-target="#ownersModal">Owners</a></td>
                         <td><a href="#" class="notesLink" data-toggle="modal" data-target="#notesModal">Notes</a></td>
                     </tr>
@@ -381,10 +381,10 @@
                         <td>` + data[i][1] + `</td>
                         <td>` + data[i][2] + `</td>
                         <td>` + (data[i][3]).toUpperCase() + `</td>
-                        <td>` + (data[i][4] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span>&#10006;</span>') + `</td>
+                        <td>` + (data[i][4] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span><b>&times;</b></span>') + `</td>
                         <td>` + (ageYears == 0 ? '< 1' : ageYears) + `</td>
-                        <td>` + (data[i][5] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span>&#10006;</span>') + `</td>
-                        <td>` + (data[i][6] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span>&#10006;</span>') + `</td>
+                        <td>` + (data[i][5] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span><b>&times;</b></span>') + `</td>
+                        <td>` + (data[i][6] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span><b>&times;</b></span>') + `</td>
                         <td><a href="#" class="ownersLink" data-toggle="modal" data-target="#ownersModal">Owners</a></td>
                         <td><a href="#" class="notesLink" data-toggle="modal" data-target="#notesModal">Notes</a></td>
                     </tr>
@@ -402,7 +402,7 @@
                         <td>` + data[i][1] + `</td>
                         <td>` + data[i][2] + `</td>
                         <td>` + (data[i][3]).toUpperCase() + `</td>
-                        <td>` + (data[i][4] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span>&#10006;</span>') + `</td>
+                        <td>` + (data[i][4] == '1' ? '<span style="color:green;">&#10004;</span>' : '<span><b>&times;</b></span>') + `</td>
                         <td>` + (ageYears == 0 ? '< 1' : ageYears) + `</td>
                         <td><a href="#" class="ownersLink" data-toggle="modal" data-target="#ownersModal">Owners</a></td>
                         <td><a href="#" class="notesLink" data-toggle="modal" data-target="#notesModal">Notes</a></td>

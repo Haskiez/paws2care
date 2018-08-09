@@ -29,9 +29,9 @@
             $now = new DateTime("today");
             $ageYears = $bday->diff($now)->y;
             if ($ageYears < 1) { $ageYears = "< 1"; }
-            $shots = $row["shots"] == "1" ? "Shots: <span style=\"color:green;\">&#10004;</span>" : "Shots: <span>&#10006;</span>";
-            $declawed = $row["declawed"] == "1" ? "Declawed: <span style=\"color:green;\">&#10004;</span>" : "Declawed: <span>&#10006;</span>";
-            $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span>&#10006;</span>";
+            $shots = $row["shots"] == "1" ? "Shots: <span style=\"color:green;\">&#10004;</span>" : "Shots: <span style=\"color:black;\"><b>&times;</b></span>";
+            $declawed = $row["declawed"] == "1" ? "Declawed: <span style=\"color:green;\">&#10004;</span>" : "Declawed: <span style=\"color:black;\"><b>&times;</b></span>";
+            $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span style=\"color:black;\"><b>&times;</b></span>";
             $tc .= "<tr data-aid=\"" . $row["id"] . "\"><td>" . $row["name"] . "</td><td>Cat</td><td>" . $row["breed"] . "</td><td>" . strtoupper($row["sex"]) . "</td><td>" . $ageYears . "</td><td>" . $shots . "<br>" . $declawed . "<br>" . $neutered . "</td></tr>";
         }
         $rs->close();
@@ -42,9 +42,9 @@
             $now = new DateTime("today");
             $ageYears = $bday->diff($now)->y;
             if ($ageYears < 1) { $ageYears = "< 1"; }
-            $shots = $row["shots"] == "1" ? "Shots: <span style=\"color:green;\">&#10004;</span>" : "Shots: <span>&#10006;</span>";
-            $licensed = $row["licensed"] == "1" ? "Licensed: <span style=\"color:green;\">&#10004;</span>" : "Licensed: <span>&#10006;</span>";
-            $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span>&#10006;</span>";
+            $shots = $row["shots"] == "1" ? "Shots: <span style=\"color:green;\">&#10004;</span>" : "Shots: <span style=\"color:black;\"><b>&times;</b></span>";
+            $licensed = $row["licensed"] == "1" ? "Licensed: <span style=\"color:green;\">&#10004;</span>" : "Licensed: <span style=\"color:black;\"><b>&times;</b></span>";
+            $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span style=\"color:black;\"><b>&times;</b></span>";
             $td .= "<tr data-aid=\"" . $row["id"] . "\"><td>" . $row["name"] . "</td><td>Dog</td><td>" . $row["breed"] . "</td><td>" . strtoupper($row["sex"]) . "</td><td>" . $ageYears . "</td><td>Weight: " . $row["weight"] . "<br>" . $shots . "<br>" . $licensed . "<br>" . $neutered . "</td></tr>";
         }
         $rs->close();
@@ -55,7 +55,7 @@
             $now = new DateTime("today");
             $ageYears = $bday->diff($now)->y;
             if ($ageYears < 1) { $ageYears = "< 1"; }
-            $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span>&#10006;</span>";
+            $neutered = $row["neutered"] == "1" ? "Neutered: <span style=\"color:green;\">&#10004;</span>" : "Neutered: <span style=\"color:black;\"><b>&times;</b></span>";
             $te .= "<tr data-aid=\"" . $row["id"] . "\"><td>" . $row["name"] . "</td><td>Exotic</td><td>" . $row["species"] . "</td><td>" . strtoupper($row["sex"]) . "</td><td>" . $ageYears . "</td><td>" . $neutered . "</td></tr>";
         }
         $rs->close();
